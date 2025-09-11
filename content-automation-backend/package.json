@@ -1,0 +1,21 @@
+{
+  "name": "content-automation-backend",
+  "version": "1.0.0",
+  "description": "This project contains the backend services for content automation, including blog post generation and video creation.",
+  "main": "dist/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "all": "ts-node src/cli.ts all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^24.3.1",
+    "axios": "^1.11.0",
+    "openai": "^5.20.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
