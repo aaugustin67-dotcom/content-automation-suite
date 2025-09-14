@@ -2,6 +2,10 @@ import os
 import sys
 # DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+venv_path = os.path.join(os.path.dirname(__file__), '..', 'venv', 'lib', f'python{sys.version_info.major}.{sys.version_info.minor}', 'site-packages')
+if os.path.exists(venv_path):
+    sys.path.insert(0, venv_path)
+
 
 from flask import Flask, send_from_directory
 from flask_cors import CORS

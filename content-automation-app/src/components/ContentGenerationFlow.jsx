@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog.jsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
 import { Progress } from '@/components/ui/progress.jsx'
@@ -248,10 +249,24 @@ export default function ContentGenerationFlow({ topic, onReset }) {
                     <Edit3 className="h-4 w-4 mr-2" />
                     Edit
                   </Button>
-                  <Button size="sm" variant="outline">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        View
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[800px]">
+                      <DialogHeader>
+                        <DialogTitle>{generatedContent.blogPost.title}</DialogTitle>
+                      </DialogHeader>
+                      <div className="py-4">
+                        <p>{generatedContent.blogPost.excerpt}</p>
+                        {/* In a real app, you'd fetch and display the full blog post content here */}
+                        <p className="text-sm text-muted-foreground mt-4">Full content not available in this demo.</p>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </CardContent>
@@ -279,10 +294,29 @@ export default function ContentGenerationFlow({ topic, onReset }) {
                     <Edit3 className="h-4 w-4 mr-2" />
                     Edit
                   </Button>
-                  <Button size="sm" variant="outline">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Preview
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Preview
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[800px]">
+                      <DialogHeader>
+                        <DialogTitle>{generatedContent.video.title}</DialogTitle>
+                      </DialogHeader>
+                      <div className="py-4">
+                        <div className="bg-gray-100 rounded-lg p-4 text-center">
+                          <Video className="h-24 w-24 mx-auto text-gray-400 mb-4" />
+                          <p className="text-lg font-semibold">Video Preview</p>
+                          <p className="text-sm text-muted-foreground">
+                            Duration: {generatedContent.video.duration}
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-4">Full video playback not available in this demo.</p>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </CardContent>

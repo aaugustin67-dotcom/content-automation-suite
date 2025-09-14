@@ -15,7 +15,7 @@ def generate_blog_post(topic):
         client = openai.OpenAI()
         
         prompt = f"""
-You are an evidence-driven medical copywriter. Write a search-optimized, people-first blog post about {topic} for {primary_intent} targeting {audience}.
+You are an evidence-driven medical copywriter. Write a search-optimized, people-first blog post about {topic}.
 
 Constraints
 
@@ -31,13 +31,7 @@ Citations: 10+ peer-reviewed sources (PubMed/NIH/Examine), inline [#] and full r
 
 SEO Brief
 
-Primary keyword: {primary_keyword}
 
-Secondary/semantic keywords to naturally include: {secondary_keywords}
-
-Search intent: {search_intent}
-
-Target feature snippets: definition, benefits list, dosage, safety, comparison.
 
 Deliverables (exact order)
 
@@ -73,17 +67,17 @@ FAQs (8–10 concise Q&As aimed at People-Also-Ask).
 
 TL;DR (bullet summary).
 
-Call-to-action tailored to {brand/app goal}, e.g., “Track your dose in {app}.”
+Call-to-action tailored to your app, e.g., “Track your dose in app.”
 
-Author credentials and “Medically reviewed by {credential}.”
+Author credentials and “Medically reviewed by [Credential].”
 
-Updated on {Month Day, Year}.
+Updated on Month Day, Year.
 
 References (full citations).
 
 On-page extras
 
-Add internal link placeholders: {3–5 internal pages}.
+Add internal link placeholders: {{3–5 internal pages}}
 
 Add 2–3 authoritative external links (NIH, Examine).
 
